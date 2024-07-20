@@ -36,10 +36,10 @@ function updateDisplay() {
     let bankLogoUrl = '';
     switch (bank) {
         case 'ธ.กสิกรไทย':
-            bankLogoUrl = 'https://github.com/useronlineid/document1/blob/main/KBANK.png?raw=true';
+            bankLogoUrl = 'https://github.com/useronlineid/Theslipcame/blob/main/KBANK.png?raw=true';
             break;
         case 'ธ.กรุงไทย':
-            bankLogoUrl = 'https://github.com/useronlineid/document1/blob/main/KTB.png?raw=true';
+            bankLogoUrl = 'https://github.com/useronlineid/Theslipcame/blob/main/KTB.png?raw=true';
             break;
         case 'ธ.กรุงเทพ':
             bankLogoUrl = 'https://github.com/useronlineid/Theslipcame/blob/main/BBL.png?raw=true';
@@ -116,7 +116,7 @@ function updateDisplay() {
             drawText(ctx, `${amount11} บาท`, 364.9, 980.9, '38.44px Sukhumvit Set', '#4b4b4b', '600', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `0.00 บาท`, 364.9, 1098.6, '38.44px Sukhumvit Set', '#4b4b4b', '600', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `${QRCode}`, 238.9, 599.0, '33px Kanit', '#4e4e4e', '500', 'left', 1.5, 5, 0, 0, 500, 0);
-            drawImage(ctx, 'https://github.com/useronlineid/document1/blob/main/KBANK.png?raw=true', 34.2, 217.5, 154, 154);  
+            drawImage(ctx, 'https://github.com/useronlineid/Theslipcame/blob/main/KBANK.png?raw=true', 34.2, 217.5, 154, 154);  
             
             drawText(ctx, `${AideMemoire}`, 204.3, 1173.1, '30.23px Sukhumvit Set', '#545454', '500', 'left', 1.5, 1, 0, 0, 500, 0);
             
