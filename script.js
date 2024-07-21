@@ -128,7 +128,7 @@ function updateDisplay() {
 function drawText(ctx, text, x, y, font, color, weight, align, lineHeight, maxLines, shadowColor, shadowBlur, maxWidth, letterSpacing) {
     ctx.font = `${weight} ${font}`;
     ctx.fillStyle = color;
-    ctx.textAlign = align;
+    ctx.textAlign = 'left'; // Always use left alignment for drawing text with custom letterSpacing
     ctx.shadowColor = shadowColor;
     ctx.shadowBlur = shadowBlur;
 
@@ -143,7 +143,7 @@ function drawText(ctx, text, x, y, font, color, weight, align, lineHeight, maxLi
         for (let i = 0; i < words.length; i++) {
             const testLine = currentLine + words[i] + ' ';
             const metrics = ctx.measureText(testLine);
-            const testWidth = metrics.width;
+            const testWidth = metrics.width + (testLine.length - 1) * letterSpacing;
 
             if (testWidth > maxWidth && i > 0) {
                 lines.push(currentLine);
@@ -157,13 +157,12 @@ function drawText(ctx, text, x, y, font, color, weight, align, lineHeight, maxLi
         lines.forEach((line, index) => {
             let currentX = x;
             if (align === 'center') {
-                currentX = (ctx.canvas.width / 2);
-            } else if (align === 'left') {
-                currentX = x;
+                currentX = (ctx.canvas.width - ctx.measureText(line).width) / 2 - ((line.length - 1) * letterSpacing) / 2;
             } else if (align === 'right') {
-                currentX = ctx.canvas.width - x;
+                currentX = ctx.canvas.width - x - ctx.measureText(line).width - ((line.length - 1) * letterSpacing);
             }
-            drawTextLine(ctx, line, currentX, currentY, letterSpacing);
+
+            drawTextLine(ctx, line.trim(), currentX, currentY, letterSpacing);
             currentY += lineHeight;
             if (maxLines && index >= maxLines - 1) {
                 return;
@@ -185,21 +184,50 @@ function drawTextLine(ctx, text, x, y, letterSpacing) {
         const charCode = char.charCodeAt(0);
         const prevChar = index > 0 ? characters[index - 1] : null;
         const prevCharCode = prevChar ? prevChar.charCodeAt(0) : null;
+
+        const isUpperVowel = (charCode >= 0x0E34 && charCode <= 0x0E37);
         const isToneMark = (charCode >= 0x0E48 && charCode <= 0x0E4C);
-        const isAboveChar = (charCode >= 0x0E31 && charCode <= 0x0E4E);
-        const isBelowChar = (prevCharCode >= 0x0E31 && prevCharCode <= 0x0E4E);
+        const isBeforeVowel = (charCode === 0x0E31);
+        const isBelowVowel = (charCode >= 0x0E38 && charCode <= 0x0E3A);
+
+        let yOffset = 0;
+        let xOffset = 0;
+
+        if (isUpperVowel) {
+            yOffset = 1;
+            xOffset = -1;
+        }
 
         if (isToneMark) {
-            ctx.fillText(char, currentPosition - (isBelowChar ? 5 : 0), y - 10);
-        } else if (isAboveChar) {
-            ctx.fillText(char, currentPosition - (letterSpacing / 2), y);
-            currentPosition += ctx.measureText(char).width;
-        } else {
-            ctx.fillText(char, currentPosition, y);
+            if (prevChar && ((prevChar.charCodeAt(0) >= 0x0E34 && prevChar.charCodeAt(0) <= 0x0E37) || prevChar.charCodeAt(0) === 0x0E31)) {
+                yOffset = -8; // วรรณยุกต์ที่มีสระ เลื่อนขึ้น 8 หน่วย
+                xOffset = -5; // เลื่อนในแนวนอน ซ้าย 5 หน่วย
+            } else {
+                yOffset = -0; // วรรณยุกต์ไม่มีสระ เลื่อนขึ้น 8 หน่วย
+                xOffset = -9; // เลื่อนในแนวนอน ซ้าย 5 หน่วย
+            }
+        }
+
+        if (isBeforeVowel) {
+            yOffset = 0;
+            xOffset = -8;
+        }
+
+        if (isBelowVowel) {
+            yOffset = 0;
+            xOffset = -4;
+        }
+
+        ctx.fillText(char, currentPosition + xOffset, y + yOffset);
+
+        if (!isToneMark && !isBeforeVowel && !isBelowVowel) {
             currentPosition += ctx.measureText(char).width + letterSpacing;
+        } else {
+            currentPosition += ctx.measureText(char).width;
         }
     });
 }
+
 
 document.getElementById('generate').addEventListener('click', updateDisplay);
 
@@ -210,3 +238,5 @@ function drawImage(ctx, imageUrl, x, y, width, height) {
         ctx.drawImage(image, x, y, width, height);
     };
 }
+
+
