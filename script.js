@@ -103,13 +103,13 @@ function updateDisplay() {
             ctx.drawImage(bankLogo, 34.2, 515.7, 154, 154); // Adjust position and size as needed
             
             // Draw text with custom styles
-            drawText(ctx, `${formattedDate}  ${formattedTime} น.`, 69.8, 133.1, '37.5px Sukhumvit Set', '#4e4e4e', '600', 'left', 1.5, 3, 0, 0, 500, 0);
+            drawText(ctx, `${formattedDate}  ${formattedTime} น.`, 69.8, 133.1, '37.5px Sukhumvit Set', '#4e4e4e', '600', 'left', 1.5, 3, 0, 0, 800, 0);
 
-            drawText(ctx, `${sendername}`, 233.5, 265.8, '39.3px Sukhumvit Set', '#4e4e4e', '600', 'left', 1.5, 3, 0, 0, 500, 0);
+            drawText(ctx, `${sendername}`, 233.5, 265.8, '39.3px Sukhumvit Set', '#4e4e4e', '600', 'left', 1.5, 3, 0, 0, 800, 0);
             drawText(ctx, `ธ.กสิกรไทย`, 233.5, 326.0, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 2, 0, 0, 500, 0);
             drawText(ctx, `${senderaccount}`, 233.5, 384.0, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 1, 0, 0, 500, 0.25);
             
-            drawText(ctx, `${receivername}`, 233.5, 564.3, '39.3px Sukhumvit Set', '#4e4e4e', '600', 'left', 1.5, 3, 0, 0, 500, 0);
+            drawText(ctx, `${receivername}`, 233.5, 564.3, '39.3px Sukhumvit Set', '#4e4e4e', '600', 'left', 1.5, 3, 0, 0, 800, 0);
             drawText(ctx, `${bank}`, 233.5, 624.8, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 2, 0, 0, 500, 0);
             drawText(ctx, `${receiveraccount}`, 233.5, 681.7, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 1, 0, 0, 500, 0.25);
             
