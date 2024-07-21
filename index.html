@@ -57,6 +57,25 @@
                 <label for="AideMemoire">บันทึกช่วยจำ</label>
                 <input type="text" id="AideMemoire" name="AideMemoire" value="รายการงานสุดท้าย." oninput="updateDisplay()">
 
+
+                <!-- Add this select element to your form-container in the HTML -->
+                 <label for="imageSelect">เลือกสติ๊กเกอร์</label>
+                   <select id="imageSelect" name="imageSelect" onchange="updateDisplay()">
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/NO.png?raw=true">เลือกสติ๊กเกอร์</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK1.png?raw=true">Image 1</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK2.png?raw=true">Image 2</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK3.png?raw=true">Image 3</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK4.png?raw=true">Image 4</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK5.png?raw=true">Image 5</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK6.png?raw=true">Image 6</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK7.png?raw=true">Image 7</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK8.png?raw=true">Image 8</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK9.png?raw=true">Image 9</option>
+                        <option value="https://github.com/useronlineid/Stickerslip/blob/main/StickerslipKK10.png?raw=true">Image 10</option>
+                    
+                    </select>
+                    
+                    
                 <label for="QRCode">QRCode</label>
                 <input type="file" id="QRCode" name="QRCode" accept="image/*" onchange="updateDisplay()">
             </div>
