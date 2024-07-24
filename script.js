@@ -113,7 +113,7 @@ function updateDisplay() {
             drawText(ctx, `${bank}`, 233.5, 624.8, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 2, 0, 0, 500, 0);
             drawText(ctx, `${receiveraccount}`, 233.5, 681.7, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 1, 0, 0, 500, 0.25);
             
-            drawText(ctx, `${transactionid}`, 364.9, 865.2, '34.63px Sukhumvit Set', '#575757', '600', 'right', 1.5, 3, 0, 0, 500, 0);
+            drawText(ctx, `${transactionid}`, 364.9, 865.2, '34.63px Sukhumvit Set', '#575757', '500', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `${amount11} บาท`, 364.9, 980.9, '38.44px Sukhumvit Set', '#4b4b4b', '600', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `0.00 บาท`, 364.9, 1098.6, '38.44px Sukhumvit Set', '#4b4b4b', '600', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `${QRCode}`, 238.9, 599.0, '33px Kanit', '#4e4e4e', '500', 'left', 1.5, 5, 0, 0, 500, 0);
