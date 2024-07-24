@@ -21,13 +21,27 @@ function formatDate(date) {
     return `${day} ${month} ${year}`;
 }
 
+function generateUniqueID() {
+    const now = new Date(document.getElementById('datetime').value);
+    const startDate = new Date("2024-07-24");
+    const dayDifference = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    const uniqueDay = (14206 + dayDifference).toString().padStart(6, '0'); // เพิ่มตามจำนวนวันตั้งแต่วันที่ 24/07/2567
+    const timePart = `${padZero(now.getHours())}${padZero(now.getMinutes())}`;
+    const randomPart = Math.floor(Math.random() * 100).toString().padStart(2, '0');
+    const randomPart1 = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
+    return `${uniqueDay}${timePart}${randomPart}BOR${randomPart1}`;
+}
+
+function padZero(num) {
+    return num.toString().padStart(2, '0');
+}
+
 function updateDisplay() {
     const sendername = document.getElementById('sendername').value || '-';
     const senderaccount = document.getElementById('senderaccount').value || '-';
     const receivername = document.getElementById('receivername').value || '-';
     const receiveraccount = document.getElementById('receiveraccount').value || '-';
     const bank = document.getElementById('bank').value || '-';
-    const transactionid = document.getElementById('transactionid').value || '-';
     const amount11 = document.getElementById('amount11').value || '-';
     const datetime = document.getElementById('datetime').value || '-';
     const AideMemoire = document.getElementById('AideMemoire').value || '-';
@@ -37,10 +51,10 @@ function updateDisplay() {
     let bankLogoUrl = '';
     switch (bank) {
         case 'ธ.กสิกรไทย':
-            bankLogoUrl = 'https://github.com/useronlineid/document1/blob/main/KBANK.png?raw=true';
+            bankLogoUrl = 'https://github.com/useronlineid/Theslipcame/blob/main/KBANK.png?raw=true';
             break;
         case 'ธ.กรุงไทย':
-            bankLogoUrl = 'https://github.com/useronlineid/document1/blob/main/KTB.png?raw=true';
+            bankLogoUrl = 'https://github.com/useronlineid/Theslipcame/blob/main/KTB.png?raw=true';
             break;
         case 'ธ.กรุงเทพ':
             bankLogoUrl = 'https://github.com/useronlineid/Theslipcame/blob/main/BBL.png?raw=true';
@@ -113,7 +127,7 @@ function updateDisplay() {
             drawText(ctx, `${bank}`, 233.5, 624.8, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 2, 0, 0, 500, 0);
             drawText(ctx, `${receiveraccount}`, 233.5, 681.7, '37.5px Sukhumvit Set', '#545454', '500', 'left', 1.5, 1, 0, 0, 500, 0.25);
             
-            drawText(ctx, `${transactionid}`, 364.9, 865.2, '34.63px Sukhumvit Set', '#575757', '500', 'right', 1.5, 3, 0, 0, 500, 0);
+            drawText(ctx, `${generateUniqueID()}`, 364.9, 865.2, '34.63px Sukhumvit Set', '#575757', '500', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `${amount11} บาท`, 364.9, 980.9, '38.44px Sukhumvit Set', '#4b4b4b', '600', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `0.00 บาท`, 364.9, 1098.6, '38.44px Sukhumvit Set', '#4b4b4b', '600', 'right', 1.5, 3, 0, 0, 500, 0);
             drawText(ctx, `${QRCode}`, 238.9, 599.0, '33px Kanit', '#4e4e4e', '500', 'left', 1.5, 5, 0, 0, 500, 0);
@@ -252,4 +266,3 @@ function drawImage(ctx, imageUrl, x, y, width, height) {
         ctx.drawImage(image, x, y, width, height);
     };
 }
-
