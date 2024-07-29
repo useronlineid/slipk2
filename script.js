@@ -102,7 +102,7 @@ function updateDisplay() {
     
     // Load background image
     const backgroundImage = new Image();
-    backgroundImage.src = 'https://github.com/useronlineid/backgroundbank/blob/main/background-K2-7-2567.jpg?raw=true';
+    backgroundImage.src = 'https://github.com/useronlineid/backgroundbank/blob/main/background-K2.jpg?raw=true';
     backgroundImage.onload = function() {
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
