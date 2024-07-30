@@ -46,6 +46,7 @@ function updateDisplay() {
     const datetime = document.getElementById('datetime').value || '-';
     const AideMemoire = document.getElementById('AideMemoire').value || '-';
     const selectedImage = document.getElementById('imageSelect').value || '';
+    const backgroundSelect = document.getElementById('backgroundSelect').value || '';
     const QRCode = document.getElementById('QRCode').value || '';
 
     let bankLogoUrl = '';
@@ -102,7 +103,7 @@ function updateDisplay() {
     
     // Load background image
     const backgroundImage = new Image();
-    backgroundImage.src = 'https://github.com/useronlineid/backgroundbank/blob/main/background-K2.jpg?raw=true';
+    backgroundImage.src = backgroundSelect;
     backgroundImage.onload = function() {
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
