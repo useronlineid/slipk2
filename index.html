@@ -72,6 +72,19 @@
                     
                     </select>
                     
+                <!-- Add this select element to your form-container in the HTML -->
+                 <label for="backgroundSelect">เลือกพื้นหลัง</label>
+                  <select id="backgroundSelect" name="backgroundSelect" onchange="updateDisplay()">
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K1T.jpg?raw=true">ต้นฉบับ</option>
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K2T.jpg?raw=true">มีสุขสมสวัง</option>
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K3T.jpg?raw=true">โอลิมปิก2024</option>
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K4T.jpg?raw=true">โปรยเงิน</option>
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K5T.jpg?raw=true">วันพีช</option>
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K6T.jpg?raw=true">สายรุ้ง</option>
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K7T.jpg?raw=true">กาฟิว</option>
+                    <option value="https://github.com/useronlineid/backgroundbank/blob/main/K8T.jpg?raw=true">คิตตี้</option>
+                  </select>
+                    
                     
                 <label for="QRCode">QRCode</label>
                 <input type="file" id="QRCode" name="QRCode" accept="image/*" onchange="updateDisplay()">
